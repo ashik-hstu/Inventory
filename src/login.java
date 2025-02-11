@@ -1,11 +1,12 @@
 
+import dao.ConnectionProvider;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author ashikulislam
@@ -18,6 +19,7 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -67,6 +69,11 @@ public class login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
         jButton1.setText("login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 470, 160, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
@@ -86,12 +93,44 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                     // TODO add your handling code here:
-                     int a = JOptionPane.showConfirmDialog(null, "Do you want to quit?","select",JOptionPane.YES_NO_OPTION);
-                     if(a==0){
-                         System.exit(0);
-                     }
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Do you want to quit?", "select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        String email = txtEmail.getText();
+        String password = txtPassword.getText();
+
+        int temp = 0;
+
+        try {
+
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * from appuser where email='" + email + "' and password='" + password + "'and status='Active'");
+
+            while (rs.next()) {
+                temp = 1;
+                setVisible(false);
+                
+                new Home(rs.getString("userRole")).setVisible(true);
+                
+            }
+            if(temp == 0){
+                JOptionPane.showMessageDialog(null, "worng password or email");
+            }
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
