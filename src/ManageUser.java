@@ -23,18 +23,47 @@ public class ManageUser extends javax.swing.JFrame {
      */
     public ManageUser() {
         initComponents();
-        setSize(848, 600);
+        setSize(824, 600);
 
         setLocationRelativeTo(null);
     }
 
+//    private boolean validateFields(String formType) {
+//        if (formType.equals("edit") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("")) {
+//            return false;
+//        } else if (formType.equals("new") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("") && !txtAddress.getText().equals("") && !txtPassword.getText().equals("")) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
     private boolean validateFields(String formType) {
-        if (formType.equals("edit") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("")) {
-            return false;
-        } else if (formType.equals("new") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("") && !txtAddress.getText().equals("") && !txtPassword.getText().equals("")) {
-            return false;
-        } else {
-            return true;
+        if (formType.equals("edit")) {
+            return txtName.getText().isEmpty() || txtMobileNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty();
+        } else if (formType.equals("new")) {
+            return txtName.getText().isEmpty() || txtMobileNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPassword.getText().isEmpty();
+        }
+        return true; // Default case
+    }
+
+    private void refreshTable() {
+        DefaultTableModel model = (DefaultTableModel) tableUser.getModel();
+        model.setRowCount(0);  // Clears existing data
+
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM appuser WHERE userRole='admin'");
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getInt("appuser_pk"), rs.getString("name"),
+                    rs.getString("mobileNumber"), rs.getString("email"),
+                    rs.getString("address"), rs.getString("status")
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -85,6 +114,7 @@ public class ManageUser extends javax.swing.JFrame {
         jLabel1.setText("User Management");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 24, -1, -1));
 
+        tableUser.setBackground(new java.awt.Color(204, 204, 255));
         tableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -100,7 +130,7 @@ public class ManageUser extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableUser);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 108, 425, 480));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 425, 480));
 
         jLabel2.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel2.setText("Name :");
@@ -109,69 +139,83 @@ public class ManageUser extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel3.setText("Email :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 372, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 360, -1));
 
         jLabel4.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel4.setText("Password :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 10));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 372, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 360, -1));
 
         jLabel5.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel5.setText("Mobile Number:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-        getContentPane().add(txtMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 372, -1));
+        getContentPane().add(txtMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, -1));
 
         jLabel6.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel6.setText("Address :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 372, -1));
+
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddressActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 360, -1));
 
         jLabel7.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel7.setText("Status :");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 475, -1, -1));
 
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 0));
         btnUpdate.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update1.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 100, -1));
 
+        btnReset.setBackground(new java.awt.Color(204, 204, 255));
         btnReset.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset1.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, 90, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, 100, -1));
 
+        btnClose.setBackground(new java.awt.Color(255, 0, 51));
         btnClose.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close2.png"))); // NOI18N
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 80, -1));
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 100, -1));
 
         comboBoxStatus.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         comboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Inactive" }));
         getContentPane().add(comboBoxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 499, -1, -1));
 
+        btnSave.setBackground(new java.awt.Color(51, 255, 0));
         btnSave.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save3.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 90, -1));
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 132, 372, -1));
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 100, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 132, 360, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/All_page_Background.PNG"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aaaa.jpg"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
 
         pack();
@@ -190,7 +234,8 @@ public class ManageUser extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+            e.printStackTrace();
         }
 
         btnUpdate.setEnabled(false);
@@ -207,7 +252,7 @@ public class ManageUser extends javax.swing.JFrame {
 
         if (validateFields("new")) {
             JOptionPane.showMessageDialog(null, "All field are required.");
-            setVisible(true);
+          setVisible(true);
         } else {
             try {
                 Connection con = ConnectionProvider.getCon();
@@ -224,7 +269,8 @@ public class ManageUser extends javax.swing.JFrame {
                 new ManageUser().setVisible(true);
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+                e.printStackTrace();
             }
         }
 
@@ -259,10 +305,10 @@ public class ManageUser extends javax.swing.JFrame {
             comboBoxStatus.addItem("Inactive");
             comboBoxStatus.addItem("Active");
         }
-        
+
         txtPassword.setEditable(false);
         txtPassword.setBackground(Color.gray);
-        
+
         btnSave.setEnabled(false);
         btnUpdate.setEnabled(true);
 
@@ -270,7 +316,7 @@ public class ManageUser extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-            String name = txtName.getText();
+        String name = txtName.getText();
         String email = txtEmail.getText();
         String mobileNumber = txtMobileNumber.getText();
         String address = txtAddress.getText();
@@ -287,7 +333,7 @@ public class ManageUser extends javax.swing.JFrame {
                 ps.setString(3, email);
                 ps.setString(4, address);
                 ps.setString(5, status);
-                ps.setInt(6, appuserPk );
+                ps.setInt(6, appuserPk);
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Updated Successfully.");
                 setVisible(false);
@@ -298,21 +344,35 @@ public class ManageUser extends javax.swing.JFrame {
             }
         }
 
-        
+
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
-        new ManageUser().setVisible(true);
-        
+//        setVisible(false);
+//        new ManageUser().setVisible(true);
+        txtName.setText("");
+        txtMobileNumber.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
+        txtPassword.setText("");
+        comboBoxStatus.setSelectedIndex(0);
+        refreshTable();
+         
+
+
     }//GEN-LAST:event_btnResetActionPerformed
+
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         setVisible(false);
 
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressActionPerformed
 
     /**
      * @param args the command line arguments

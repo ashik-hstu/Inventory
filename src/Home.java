@@ -43,12 +43,12 @@ public class Home extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnUser = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnCategory = new javax.swing.JButton();
+        btnProduct = new javax.swing.JButton();
+        btnCustomer = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
+        btnViewOrder = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -69,45 +69,55 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1.add(btnUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 130, -1));
 
-        jButton3.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/category.png"))); // NOI18N
-        jButton3.setText("Category");
-        jButton3.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
-
-        jButton4.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
-        jButton4.setText("Product");
-        jButton4.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
-
-        jButton5.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customers.png"))); // NOI18N
-        jButton5.setText("Customer");
-        jButton5.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
-
-        jButton6.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Orders.png"))); // NOI18N
-        jButton6.setText("Order");
-        jButton6.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
-
-        jButton7.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/View-orders.png"))); // NOI18N
-        jButton7.setText("View Order");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
-
-        jButton8.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
-        jButton8.setText("Log Out");
-        jButton8.setPreferredSize(new java.awt.Dimension(145, 46));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnCategory.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/category.png"))); // NOI18N
+        btnCategory.setText("Category");
+        btnCategory.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnCategoryActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
+        jPanel1.add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        btnProduct.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
+        btnProduct.setText("Product");
+        btnProduct.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        btnCustomer.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customers.png"))); // NOI18N
+        btnCustomer.setText("Customer");
+        btnCustomer.setPreferredSize(new java.awt.Dimension(145, 46));
+        jPanel1.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        btnOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Orders.png"))); // NOI18N
+        btnOrder.setText("Order");
+        btnOrder.setPreferredSize(new java.awt.Dimension(145, 46));
+        jPanel1.add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+
+        btnViewOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnViewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/View-orders.png"))); // NOI18N
+        btnViewOrder.setText("View Order");
+        jPanel1.add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
+
+        btnLogOut.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
+        btnLogOut.setText("Log Out");
+        btnLogOut.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_background.png"))); // NOI18N
@@ -118,7 +128,7 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
         
        int a =JOptionPane.showConfirmDialog(null, "Do you want to log out?","select",JOptionPane.YES_NO_OPTION);
@@ -128,12 +138,26 @@ public class Home extends javax.swing.JFrame {
        }
         
         
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
         // TODO add your handling code here:
         new ManageUser().setVisible(true);
     }//GEN-LAST:event_btnUserActionPerformed
+
+    private void btnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryActionPerformed
+        // TODO add your handling code here:
+        new ManageCategory().setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_btnCategoryActionPerformed
+
+    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+        // TODO add your handling code here:
+        new ManageProduct().setVisible(true);
+        
+    }//GEN-LAST:event_btnProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,14 +195,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCategory;
+    private javax.swing.JButton btnCustomer;
+    private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnOrder;
+    private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnUser;
+    private javax.swing.JButton btnViewOrder;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
