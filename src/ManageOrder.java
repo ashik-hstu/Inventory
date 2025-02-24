@@ -387,8 +387,8 @@ public class ManageOrder extends javax.swing.JFrame {
 
                 Paragraph data = new Paragraph("\tOrder ID: " + orderId + "\nDate: " + myDateFormat.format(cal.getTime()) + "\nTotal Price: " + finalTotalPrice);
                 doc.add(data);
-                
-                int zero=00;
+
+                int zero = 00;
                 if (discount > 0) {
                     Paragraph discountMessage = new Paragraph("\tDiscount : " + discount + " Tk (" + (discount == finalTotalPrice * 0.02 ? "2%" : "5%") + ")\n");
                     doc.add(discountMessage);
@@ -423,7 +423,6 @@ public class ManageOrder extends javax.swing.JFrame {
                 table1.addCell(quantityCell);
                 table1.addCell(pertialTotalCell);
 
-                
                 for (int i = 0; i < tableCart.getRowCount(); i++) {
                     table1.addCell(tableCart.getValueAt(i, 1).toString());
                     table1.addCell(tableCart.getValueAt(i, 4).toString());
@@ -468,9 +467,20 @@ public class ManageOrder extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnResetActionPerformed
 
+    private void resetCart() {
+        
+        DefaultTableModel cartModel = (DefaultTableModel) tableCart.getModel();
+        cartModel.setRowCount(0);
+
+        finalTotalPrice = 0;
+        lblFinalTotalPrice.setText("0000"); 
+    }
+
+
     private void tableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCustomerMouseClicked
         // TODO add your handling code here:
-
+        resetCart();    
+        
         int index = tableCustomer.getSelectedRow();
         TableModel model = tableCustomer.getModel();
 
