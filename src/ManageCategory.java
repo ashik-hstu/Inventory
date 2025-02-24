@@ -89,8 +89,8 @@ public class ManageCategory extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 95, 407, 499));
 
         jLabel1.setFont(new java.awt.Font("Fira Sans", 1, 36)); // NOI18N
-        jLabel1.setText("Category Management");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 15, -1, -1));
+        jLabel1.setText(".............Type Management");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Fira Sans", 1, 18)); // NOI18N

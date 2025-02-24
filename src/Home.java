@@ -17,13 +17,14 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        setSize(1366,766);
     }
     
     public Home(String role) {
         initComponents();
         setLocationRelativeTo(null);
         if(role.equals("Admin")){
-           btnUser.setVisible(false);
+           btnAdminPanel.setEnabled(false);
                        
         }
         
@@ -41,75 +42,23 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        btnUser = new javax.swing.JButton();
-        btnCategory = new javax.swing.JButton();
-        btnProduct = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+        btnAdminPanel = new javax.swing.JButton();
         btnCustomer = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
         btnViewOrder = new javax.swing.JButton();
-        btnLogOut = new javax.swing.JButton();
+        btnStorage = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnUser.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Users.png"))); // NOI18N
-        btnUser.setText("user");
-        btnUser.setPreferredSize(new java.awt.Dimension(145, 46));
-        btnUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 130, -1));
-
-        btnCategory.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/category.png"))); // NOI18N
-        btnCategory.setText("Category");
-        btnCategory.setPreferredSize(new java.awt.Dimension(145, 46));
-        btnCategory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCategoryActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
-
-        btnProduct.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
-        btnProduct.setText("Product");
-        btnProduct.setPreferredSize(new java.awt.Dimension(145, 46));
-        btnProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
-
-        btnCustomer.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customers.png"))); // NOI18N
-        btnCustomer.setText("Customer");
-        btnCustomer.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
-
-        btnOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Orders.png"))); // NOI18N
-        btnOrder.setText("Order");
-        btnOrder.setPreferredSize(new java.awt.Dimension(145, 46));
-        jPanel1.add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
-
-        btnViewOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnViewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/View-orders.png"))); // NOI18N
-        btnViewOrder.setText("View Order");
-        jPanel1.add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
-
+        btnLogOut.setBackground(new java.awt.Color(204, 204, 255));
         btnLogOut.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
+        btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit3.png"))); // NOI18N
         btnLogOut.setText("Log Out");
         btnLogOut.setPreferredSize(new java.awt.Dimension(145, 46));
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -117,13 +66,78 @@ public class Home extends javax.swing.JFrame {
                 btnLogOutActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 10));
+        getContentPane().add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 630, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_background.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+        btnAdminPanel.setBackground(new java.awt.Color(204, 204, 255));
+        btnAdminPanel.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnAdminPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin1.png"))); // NOI18N
+        btnAdminPanel.setText("Admin Panel");
+        btnAdminPanel.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminPanelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        btnCustomer.setBackground(new java.awt.Color(204, 204, 255));
+        btnCustomer.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer2.png"))); // NOI18N
+        btnCustomer.setText("Customer");
+        btnCustomer.setMaximumSize(new java.awt.Dimension(137, 30));
+        btnCustomer.setMinimumSize(new java.awt.Dimension(137, 30));
+        btnCustomer.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+
+        btnOrder.setBackground(new java.awt.Color(204, 204, 255));
+        btnOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/orders1.png"))); // NOI18N
+        btnOrder.setText("Order");
+        btnOrder.setMaximumSize(new java.awt.Dimension(137, 30));
+        btnOrder.setMinimumSize(new java.awt.Dimension(137, 30));
+        btnOrder.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
+
+        btnViewOrder.setBackground(new java.awt.Color(204, 204, 255));
+        btnViewOrder.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnViewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viewOrder1.png"))); // NOI18N
+        btnViewOrder.setText("View Order");
+        btnViewOrder.setMaximumSize(new java.awt.Dimension(137, 30));
+        btnViewOrder.setMinimumSize(new java.awt.Dimension(137, 30));
+        btnViewOrder.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewOrderActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnViewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, -1, -1));
+
+        btnStorage.setBackground(new java.awt.Color(204, 204, 255));
+        btnStorage.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnStorage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/storage1.png"))); // NOI18N
+        btnStorage.setText("Storage");
+        btnStorage.setMaximumSize(new java.awt.Dimension(137, 30));
+        btnStorage.setMinimumSize(new java.awt.Dimension(137, 30));
+        btnStorage.setPreferredSize(new java.awt.Dimension(145, 46));
+        btnStorage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStorageActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnStorage, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Home_bg5.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,25 +154,61 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLogOutActionPerformed
 
-    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+    private void btnViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderActionPerformed
         // TODO add your handling code here:
-        new ManageUser().setVisible(true);
-    }//GEN-LAST:event_btnUserActionPerformed
+        new ManageViewOrder().setVisible(true);
+        
 
-    private void btnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryActionPerformed
+    }//GEN-LAST:event_btnViewOrderActionPerformed
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-        new ManageCategory().setVisible(true);
-        
-        
-        
-    }//GEN-LAST:event_btnCategoryActionPerformed
+        new ManageOrder().setVisible(true);
+    }//GEN-LAST:event_btnOrderActionPerformed
 
-    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+    private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
         // TODO add your handling code here:
-        new ManageProduct().setVisible(true);
-        
-    }//GEN-LAST:event_btnProductActionPerformed
+        new ManageCustomer().setVisible(true);
 
+    }//GEN-LAST:event_btnCustomerActionPerformed
+
+    private void btnStorageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStorageActionPerformed
+        // TODO add your handling code here:
+        new ManageStorage().setVisible(true);
+        
+        
+    }//GEN-LAST:event_btnStorageActionPerformed
+
+    private void btnAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminPanelActionPerformed
+        // TODO add your handling code here:
+        new ManageAdminPanel().setVisible(true);
+        
+    }//GEN-LAST:event_btnAdminPanelActionPerformed
+
+//    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {                                        
+//        // TODO add your handling code here:
+//        new ManageUser().setVisible(true);
+//    } 
+    
+    
+    
+    
+    
+//    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {                                           
+//        // TODO add your handling code here:
+//        new ManageProduct().setVisible(true);
+//
+//    }
+    
+  
+//      private void btnCategoryActionPerformed(java.awt.event.ActionEvent evt) {                                            
+//        // TODO add your handling code here:
+//        new ManageCategory().setVisible(true);
+//
+//    }  
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -195,16 +245,13 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCategory;
+    private javax.swing.JButton btnAdminPanel;
     private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnUser;
+    private javax.swing.JButton btnStorage;
     private javax.swing.JButton btnViewOrder;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

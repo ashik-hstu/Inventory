@@ -111,8 +111,8 @@ public class ManageUser extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Fira Mono", 1, 36)); // NOI18N
-        jLabel1.setText("User Management");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 24, -1, -1));
+        jLabel1.setText("Employee Management.........");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         tableUser.setBackground(new java.awt.Color(204, 204, 255));
         tableUser.setModel(new javax.swing.table.DefaultTableModel(

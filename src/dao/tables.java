@@ -15,30 +15,6 @@ import javax.swing.JOptionPane;
  */
 //public class tables {
 //
-//    public static void main(String[] args) {
-//        Connection con = null;
-//        Statement st = null;
-//        try {
-//            con = ConnectionProvider.getCon();
-//            st = con.createStatement();
-////            st.executeUpdate("CREATE TABLE appuser(appuser_pk int AUTO_INCREMENT PRIMARY KEY,userRole varchar(50),name varchar(200),mobileNumber varchar(50),email varchar(200),password varchar(50),address varchar(200),status varchar(50) )");                 
-//            st.executeUpdate("INSERT INTO appuser(userRole,name,mobileNumber,email,password,address,status) values('superAdmin','Super Admin','12345','superadmin@gmail.com','admin','Bangladesh','Active' )  ");
-//                 JOptionPane.showMessageDialog(null,"table created and data entry is successful");
-//        } catch (Exception e) {
-//            JOptionPane.showConfirmDialog(null, e);
-//        } finally {
-//            try {
-//
-//                con.close();
-//                st.close();
-//            } catch (Exception e) {
-//
-//            }
-//        }
-//    }
-//}
-
-
 public class tables {
 
     public static void main(String[] args) {
@@ -63,8 +39,8 @@ public class tables {
 //            + "status VARCHAR(50))");
 //    System.out.println("Table created successfully.");
 //    st.executeUpdate("INSERT INTO appuser(userRole, name, mobileNumber, email, password, address, status) "
-//            + "VALUES('superAdmin', 'Super Admin', '12345', 'superadmin@gmail.com', 'admin', 'Bangladesh', 'Active')");
-//   
+//            + "VALUES('superAdmin', 'Super Admin', '12345', 'admin@gmail.com', 'admin', 'Bangladesh', 'Active')");
+//    JOptionPane.showMessageDialog(null, "Data inserted successfully.");
 // Category table.........
 //    st.executeUpdate("CREATE TABLE IF NOT EXISTS category ("
 //            + "category_pk INT AUTO_INCREMENT PRIMARY KEY, "
@@ -88,9 +64,16 @@ public class tables {
 //                    + "email VARCHAR(200), "
 //                    + "address VARCHAR(200))");
 //            JOptionPane.showMessageDialog(null, "Customer table created successfully.");
+//Order table
+//            st.executeUpdate("CREATE TABLE IF NOT EXISTS orderDetail("
+//                    + "order_pk INT AUTO_INCREMENT PRIMARY KEY, "
+//                    + "orderId VARCHAR(200), "
+//                    + "customer_fk int,"
+//                    + "orderDate VARCHAR(200), "
+//                    + "totalPaid int)");
+//            JOptionPane.showMessageDialog(null, "Order table created successfully.");
 
 //            JOptionPane.showMessageDialog(null, "Data inserted successfully.");
-
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             e.printStackTrace();

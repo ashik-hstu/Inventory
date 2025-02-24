@@ -88,6 +88,7 @@ public class ManageCustomer extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -112,9 +113,9 @@ public class ManageCustomer extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 98, 433, 496));
 
-        jLabel1.setFont(new java.awt.Font("Fira Sans", 3, 48)); // NOI18N
-        jLabel1.setText("Customer Entry");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 0, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Fira Sans", 3, 36)); // NOI18N
+        jLabel1.setText("Customer Entry................");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel2.setText("Name :");
@@ -197,7 +198,7 @@ public class ManageCustomer extends javax.swing.JFrame {
         getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 434, 149, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aaaa.jpg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -273,7 +274,7 @@ public class ManageCustomer extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new Home().setVisible(true);
+//        new Home().setVisible(true);
         
     }//GEN-LAST:event_btnCloseActionPerformed
 

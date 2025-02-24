@@ -42,6 +42,7 @@ public class login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -85,8 +86,14 @@ public class login extends javax.swing.JFrame {
         txtPassword.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 470, 330, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login_background.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Fira Sans", 3, 18)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/copyright1.png"))); // NOI18N
+        jLabel4.setText("By Ashik....");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login_background.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,31 +103,7 @@ public class login extends javax.swing.JFrame {
 
         String email = txtEmail.getText();
         String password = txtPassword.getText();
-//
-//        int temp = 0;
-//
-//        try {
-//
-//            Connection con = ConnectionProvider.getCon();
-//            Statement st = con.createStatement();
-//            ResultSet rs = st.executeQuery("SELECT * from appuser where email='" + email + "' and password='" + password + "'and status='Active'");
-//
-//            while (rs.next()) {
-//                temp = 1;
-//                setVisible(false);
-//                
-//                new Home(rs.getString("userRole")).setVisible(true);
-//                
-//            }
-//            if(temp == 0){
-//                JOptionPane.showMessageDialog(null, "worng password or email");
-//            }
-//            
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error: " + e.toString());
-//            e.printStackTrace();
-//        }
+
 
         Connection con = null;
         Statement st = null;
@@ -212,6 +195,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables

@@ -90,6 +90,7 @@ public class ManageProduct extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cc.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -203,7 +204,7 @@ public class ManageProduct extends javax.swing.JFrame {
         getContentPane().add(comboBoxCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, 130, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cc.jpg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-580, -90, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-590, -70, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

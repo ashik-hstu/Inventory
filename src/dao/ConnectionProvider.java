@@ -13,32 +13,7 @@ import java.sql.SQLException;
  *
  * @author ashikulislam
  */
-//public class ConnectionProvider {
-//    public static Connection getCon() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory?useSSL=false", "ashik", "ashik");
-//            return con;
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            return null;
-//        }
-//    }
-//} 
-//public class ConnectionProvider {
-//    public static Connection getCon() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            String url = "jdbc:mysql://localhost:3306/inventory?useSSL=false";
-//            String user = "ashik";  // Replace with env variable or config file
-//            String password = "ashik";  // Replace with env variable or config file
-//            return DriverManager.getConnection(url, user, password);
-//        } catch (Exception e) {
-//            e.printStackTrace();  // Better error handling
-//            return null;
-//        }
-//    }
-//}
+
 
   
 
