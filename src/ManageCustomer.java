@@ -37,12 +37,12 @@ public class ManageCustomer extends javax.swing.JFrame {
         } else if (formType.equals("new")) {
             return txtName.getText().isEmpty() || txtMobileNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty();
         }
-        return true; // Default case
+        return true; 
     }
     
      private void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tableCustomer.getModel();
-        model.setRowCount(0);  // Clears existing data
+        model.setRowCount(0);  
 
         try {
             Connection con = ConnectionProvider.getCon();
@@ -274,7 +274,6 @@ public class ManageCustomer extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-//        new Home().setVisible(true);
         
     }//GEN-LAST:event_btnCloseActionPerformed
 
@@ -324,7 +323,7 @@ public class ManageCustomer extends javax.swing.JFrame {
                 ps.setString(4, address);
                 ps.setInt(5, customerPk);
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Updated Successfully.");
+                JOptionPane.showMessageDialog(null, "Customer Info Updated Successfully.");
                 setVisible(false);
                 new ManageCustomer().setVisible(true);
 

@@ -2,9 +2,11 @@
 import dao.ConnectionProvider;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
+//import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -104,42 +106,40 @@ public class login extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String password = txtPassword.getText();
 
+        String query = "SELECT * FROM appuser WHERE email = ? AND password = ? AND status = 'Active'";
+        String insertQuery = "INSERT INTO userActivity (user_fk, name, mobileNumber, date, login_time) VALUES (?, ?, ?, CURDATE(), TIME(NOW()))";
 
-        Connection con = null;
-        Statement st = null;
-        ResultSet rs = null;
+        try (Connection con = ConnectionProvider.getCon();
+                PreparedStatement pst = con.prepareStatement(query); 
+                PreparedStatement pstInsert = con.prepareStatement(insertQuery)) {
 
-        try {
-            con = ConnectionProvider.getCon();
-            st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM appuser WHERE email='" + email + "' AND password='" + password + "' AND status='Active'");
+            pst.setString(1, email);
+            pst.setString(2, password);
 
-            if (rs.next()) {
-                setVisible(false);
-                new Home(rs.getString("userRole")).setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Wrong email or password.");
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    int userId = rs.getInt("appuser_pk");
+                    String name = rs.getString("name");
+                    String mobileNumber = rs.getString("mobileNumber");
+
+                    Session.setCurrentUserId(userId);
+
+                    pstInsert.setInt(1, userId);
+                    pstInsert.setString(2, name);
+                    pstInsert.setString(3, mobileNumber);
+                    pstInsert.executeUpdate();
+
+                    setVisible(false);
+                    new Home(rs.getString("userRole")).setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Welcome Back,Onii Chan!!❤️❤️❤️");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong email or password.");
+                }
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-
-
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed

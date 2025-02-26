@@ -21,17 +21,17 @@ import java.sql.SQLException;
     public static Connection getCon() {
         Connection con = null;
         try {
-            // Load MySQL JDBC Driver
+            // Loading ashik mysql jdbc driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             
-            // Database URL, username, and password
+            
             String url = "jdbc:mysql://localhost:3306/inventory?useSSL=false";
             String user = "ashik";  
             String password = "ashik";  
             
-            // Try to establish a connection
+           
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Database Connected Successfully!");  // Success Message
+            System.out.println("Database Connected Successfully!");  
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver not found. Ensure MySQL Connector/J is added.");
             e.printStackTrace();

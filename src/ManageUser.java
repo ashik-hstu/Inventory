@@ -43,12 +43,12 @@ public class ManageUser extends javax.swing.JFrame {
         } else if (formType.equals("new")) {
             return txtName.getText().isEmpty() || txtMobileNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPassword.getText().isEmpty();
         }
-        return true; // Default case
+        return true; 
     }
 
     private void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tableUser.getModel();
-        model.setRowCount(0);  // Clears existing data
+        model.setRowCount(0);  
 
         try {
             Connection con = ConnectionProvider.getCon();
@@ -349,8 +349,7 @@ public class ManageUser extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-//        setVisible(false);
-//        new ManageUser().setVisible(true);
+
         txtName.setText("");
         txtMobileNumber.setText("");
         txtEmail.setText("");

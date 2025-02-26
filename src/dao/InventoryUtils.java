@@ -7,7 +7,7 @@ package dao;
 import java.io.File;
 
 public class InventoryUtils {
-    public static String billPath = "/home/ashikulislam/bills/"; // Updated with your username
+    public static String billPath = "/home/ashikulislam/bills/"; 
 
     static {
         try {

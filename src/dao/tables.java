@@ -39,7 +39,7 @@ public class tables {
 //            + "status VARCHAR(50))");
 //    System.out.println("Table created successfully.");
 //    st.executeUpdate("INSERT INTO appuser(userRole, name, mobileNumber, email, password, address, status) "
-//            + "VALUES('superAdmin', 'Super Admin', '12345', 'admin@gmail.com', 'admin', 'Bangladesh', 'Active')");
+//            + "VALUES('Owner', 'Owner Ashik', '12345', 'admin@gmail.com', 'admin', 'Bangladesh', 'Active')");
 //    JOptionPane.showMessageDialog(null, "Data inserted successfully.");
 // Category table.........
 //    st.executeUpdate("CREATE TABLE IF NOT EXISTS category ("
@@ -72,8 +72,20 @@ public class tables {
 //                    + "orderDate VARCHAR(200), "
 //                    + "totalPaid int)");
 //            JOptionPane.showMessageDialog(null, "Order table created successfully.");
-
 //            JOptionPane.showMessageDialog(null, "Data inserted successfully.");
+// User activity table
+//            st.executeUpdate("CREATE TABLE IF NOT EXISTS userActivity ("
+//                    + "    activity_pk INT AUTO_INCREMENT PRIMARY KEY, "
+//                    + "    user_fk INT, "
+//                    + "    name VARCHAR(200), "
+//                    + "    mobileNumber VARCHAR(50), "
+//                    + "    date DATE, "
+//                    + "    login_time TIME, "
+//                    + "    logout_time TIME, "
+//                    + "    FOREIGN KEY (user_fk) REFERENCES appuser(appuser_pk) "
+//                    + ");");
+//            JOptionPane.showMessageDialog(null, "User Activity table created successfully.");
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             e.printStackTrace();

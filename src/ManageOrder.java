@@ -56,7 +56,6 @@ public class ManageOrder extends javax.swing.JFrame {
 
     }
 
-//    for unique orderId
     public String getUniqueId(String prefix) {
         return prefix + System.nanoTime();
     }
@@ -285,7 +284,7 @@ public class ManageOrder extends javax.swing.JFrame {
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Home_bg2.jpg"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -332,12 +331,11 @@ public class ManageOrder extends javax.swing.JFrame {
         if (finalTotalPrice != 0 && !txtCustomerName.getText().equals("")) {
             orderId = getUniqueId("Bill-");
 
-            // Calculate discount
             double discount = 0;
             if (finalTotalPrice >= 1000 && finalTotalPrice < 5000) {
-                discount = finalTotalPrice * 0.02; // 2% discount
+                discount = finalTotalPrice * 0.02;
             } else if (finalTotalPrice >= 5000) {
-                discount = finalTotalPrice * 0.05; // 5% discount
+                discount = finalTotalPrice * 0.05; 
             }
 
             double finalTotalPriceAfterDiscount = finalTotalPrice - discount;

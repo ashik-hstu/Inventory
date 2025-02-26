@@ -54,7 +54,7 @@ public class ManageProduct extends javax.swing.JFrame {
         } else if (formType.equals("new")) {
             return txtName.getText().isEmpty() || txtPrice.getText().isEmpty() || txtDescription.getText().isEmpty() || txtQuantity.getText().isEmpty();
         }
-        return true; // Default case
+        return true; 
     }
 
     /**

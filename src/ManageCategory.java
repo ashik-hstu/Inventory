@@ -34,7 +34,7 @@ public class ManageCategory extends javax.swing.JFrame {
         if (!txtName.getText().isEmpty()) {
             return false;
         }
-        return true; // Default case
+        return true; 
     }
 
     /**
@@ -207,7 +207,6 @@ public class ManageCategory extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-//        new Home().setVisible(true);
         
         
         

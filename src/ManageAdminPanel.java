@@ -33,6 +33,7 @@ public class ManageAdminPanel extends javax.swing.JFrame {
         btnDashboard = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         btnAddProduct = new javax.swing.JButton();
+        btnActivityTrack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,8 +42,8 @@ public class ManageAdminPanel extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Fira Sans", 3, 36)); // NOI18N
-        jLabel1.setText("......................Admin Panel");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        jLabel1.setText("......................Admin Panel.....................");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         btnEmployee.setBackground(new java.awt.Color(204, 204, 204));
         btnEmployee.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
@@ -54,7 +55,7 @@ public class ManageAdminPanel extends javax.swing.JFrame {
                 btnEmployeeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        getContentPane().add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         btnAddType.setBackground(new java.awt.Color(204, 204, 204));
         btnAddType.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
@@ -66,7 +67,7 @@ public class ManageAdminPanel extends javax.swing.JFrame {
                 btnAddTypeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAddType, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+        getContentPane().add(btnAddType, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         btnDashboard.setBackground(new java.awt.Color(204, 204, 204));
         btnDashboard.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
@@ -78,7 +79,7 @@ public class ManageAdminPanel extends javax.swing.JFrame {
                 btnDashboardActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, -1, -1));
+        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         btnClose.setBackground(new java.awt.Color(204, 204, 204));
         btnClose.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
@@ -102,7 +103,18 @@ public class ManageAdminPanel extends javax.swing.JFrame {
                 btnAddProductActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, -1));
+        getContentPane().add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+
+        btnActivityTrack.setBackground(new java.awt.Color(204, 204, 204));
+        btnActivityTrack.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        btnActivityTrack.setText("Activity Track");
+        btnActivityTrack.setPreferredSize(new java.awt.Dimension(150, 45));
+        btnActivityTrack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActivityTrackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnActivityTrack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Storage_bg.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -140,6 +152,14 @@ public class ManageAdminPanel extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAddProductActionPerformed
 
+    private void btnActivityTrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivityTrackActionPerformed
+        // TODO add your handling code here:
+        
+        
+        new ManageUserActivity().setVisible(true);
+        
+    }//GEN-LAST:event_btnActivityTrackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +196,7 @@ public class ManageAdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActivityTrack;
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddType;
     private javax.swing.JButton btnClose;
