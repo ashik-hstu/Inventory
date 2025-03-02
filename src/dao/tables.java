@@ -86,6 +86,16 @@ public class tables {
 //                    + ");");
 //            JOptionPane.showMessageDialog(null, "User Activity table created successfully.");
 
+//  String sql = "CREATE TABLE IF NOT EXISTS soldProduct ("
+//                + "soldProduct_pk INT AUTO_INCREMENT PRIMARY KEY, "
+//                + "product_fk INT, "
+//                + "product_name VARCHAR(200), "
+//                + "sold_amount INT, "
+//                + "FOREIGN KEY (product_fk) REFERENCES product(product_pk))";
+//
+//    st.executeUpdate(sql);
+//    JOptionPane.showMessageDialog(null, "soldProduct table created successfully!");
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             e.printStackTrace();
@@ -104,13 +114,3 @@ public class tables {
     }
 }
 
-//try {
-//            st = con.createStatement();
-////             st.executeUpdate("CREATE TABLE appuser(appuser_pk int AUTO_INCREMENT PRIMARY KEY,userRole varchar(50),name varchar(200),mobileNumber varchar(50),email varchar(200),password varchar(50),address varchar(200),status varchar(50) )");
-//            st.executeUpdate("INSERT INTO appuser(userRole, name, mobileNumber, email, password, address, status) "
-//                    + "VALUES('superAdmin', 'Super Admin', '12345', 'superadmin@gmail.com', 'admin', 'Bangladesh', 'Active')");
-//            JOptionPane.showMessageDialog(null, "Data entry successful");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error: " + e.toString());
-//            e.printStackTrace();
-//        } 

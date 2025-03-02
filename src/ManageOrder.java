@@ -335,7 +335,7 @@ public class ManageOrder extends javax.swing.JFrame {
             if (finalTotalPrice >= 1000 && finalTotalPrice < 5000) {
                 discount = finalTotalPrice * 0.02;
             } else if (finalTotalPrice >= 5000) {
-                discount = finalTotalPrice * 0.05; 
+                discount = finalTotalPrice * 0.05;
             }
 
             double finalTotalPriceAfterDiscount = finalTotalPrice - discount;
@@ -350,6 +350,18 @@ public class ManageOrder extends javax.swing.JFrame {
                         ps.setInt(1, Integer.parseInt(dtm.getValueAt(i, 2).toString()));
                         ps.setInt(2, Integer.parseInt(dtm.getValueAt(i, 0).toString()));
                         ps.executeUpdate();
+
+                        int productId = Integer.parseInt(dtm.getValueAt(i, 0).toString()); // Product ID
+                        int quantitySold = Integer.parseInt(dtm.getValueAt(i, 2).toString()); // Quantity sold
+
+                        String query2 = "INSERT INTO soldProduct (product_fk, product_name, sold_amount) "
+                                + "SELECT p.product_pk, p.name, ? AS sold_amount "
+                                + "FROM product p "
+                                + "WHERE p.product_pk = ?";
+                        PreparedStatement ps2 = con.prepareStatement(query2);
+                        ps2.setInt(1, quantitySold); // Sold amount
+                        ps2.setInt(2, productId);   // Product ID
+                        ps2.executeUpdate();
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
                     }
@@ -466,19 +478,19 @@ public class ManageOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void resetCart() {
-        
+
         DefaultTableModel cartModel = (DefaultTableModel) tableCart.getModel();
         cartModel.setRowCount(0);
 
         finalTotalPrice = 0;
-        lblFinalTotalPrice.setText("0000"); 
+        lblFinalTotalPrice.setText("0000");
     }
 
 
     private void tableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCustomerMouseClicked
         // TODO add your handling code here:
-        resetCart();    
-        
+        resetCart();
+
         int index = tableCustomer.getSelectedRow();
         TableModel model = tableCustomer.getModel();
 
