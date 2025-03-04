@@ -2,7 +2,6 @@
 import dao.ConnectionProvider;
 import java.sql.Connection;
 import java.sql.ResultSet;
-//import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -131,7 +130,7 @@ public class login extends javax.swing.JFrame {
 
                     setVisible(false);
                     new Home(rs.getString("userRole")).setVisible(true);
-                    JOptionPane.showMessageDialog(null, "Welcome Back,Onii Chan!!❤️❤️❤️");
+                    JOptionPane.showMessageDialog(null, "Welcome Back!!!️");
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong email or password.");
                 }

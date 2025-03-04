@@ -126,7 +126,8 @@ public class ManageAdminPanel extends javax.swing.JFrame {
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         // TODO add your handling code here:
         
-        new ManageDashboard().setVisible(true);
+            new SoldProductChart().setVisible(true);
+
         
         
     }//GEN-LAST:event_btnDashboardActionPerformed

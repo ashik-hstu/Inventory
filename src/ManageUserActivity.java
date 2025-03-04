@@ -52,7 +52,7 @@ public class ManageUserActivity extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Fira Sans", 3, 36)); // NOI18N
         jLabel1.setText("....................................................Employee Activity");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         tableEmployeeActivity.setBackground(new java.awt.Color(204, 204, 255));
         tableEmployeeActivity.setModel(new javax.swing.table.DefaultTableModel(

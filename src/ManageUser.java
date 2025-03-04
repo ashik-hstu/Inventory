@@ -28,15 +28,7 @@ public class ManageUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-//    private boolean validateFields(String formType) {
-//        if (formType.equals("edit") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("")) {
-//            return false;
-//        } else if (formType.equals("new") && !txtName.getText().equals("") && !txtMobileNumber.getText().equals("") && !txtEmail.getText().equals("") && !txtAddress.getText().equals("") && !txtAddress.getText().equals("") && !txtPassword.getText().equals("")) {
-//            return false;
-//        } else {
-//            return true;
-//        }
-//    }
+
     private boolean validateFields(String formType) {
         if (formType.equals("edit")) {
             return txtName.getText().isEmpty() || txtMobileNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty();
